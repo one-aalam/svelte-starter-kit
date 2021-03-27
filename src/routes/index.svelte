@@ -1,7 +1,13 @@
 <script lang="ts">
+	import SvelteSeo from "svelte-seo";
 	import Counter from '$lib/Counter.svelte';
 	import { AirplayIcon, AtSignIcon } from 'svelte-feather-icons'
 </script>
+
+<SvelteSeo
+  title="Svelte Starter Kit"
+  description="Svelte with brilliant bells and useful whistles"
+/>
 
 <main>
 	<h1>Hello world!</h1>

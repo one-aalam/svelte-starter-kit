@@ -56,6 +56,7 @@
 		]
 	},
 	"dependencies": {
-		"svelte-feather-icons": "^3.3.0"
+		"svelte-feather-icons": "^3.3.0",
+		"svelte-seo": "^1.1.0"
 	}
 }
