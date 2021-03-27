@@ -1,4 +1,4 @@
-const tailwindcss = require('tailwindcss');
+const tailwindcss = require('@tailwindcss/jit');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 
