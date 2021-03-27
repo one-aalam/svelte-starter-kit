@@ -9,7 +9,7 @@
   description="Svelte with brilliant bells and useful whistles"
 />
 
-<main>
+<div>
 	<h1>Hello world!</h1>
 	<AirplayIcon size="24" />
 	<Counter />
@@ -18,7 +18,7 @@
 		Visit <a class="text-blue-600 underline" href="https://svelte.dev">svelte.dev</a> to learn how to
 		build Svelte apps.
 	</p>
-</main>
+</div>
 
 <style style lang="postcss">
 	:root {
