@@ -1,10 +1,11 @@
 <script lang="ts">
 	import Counter from '$lib/Counter.svelte';
+	import { AirplayIcon, AtSignIcon } from 'svelte-feather-icons'
 </script>
 
 <main>
 	<h1>Hello world!</h1>
-
+	<AirplayIcon size="24" />
 	<Counter />
 
 	<p>

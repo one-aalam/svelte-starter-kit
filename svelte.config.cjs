@@ -1,7 +1,5 @@
 const sveltePreprocess = require('svelte-preprocess');
 const node = require('@sveltejs/adapter-node');
-const viteFonts = require('vite-plugin-fonts').default
-
 const pkg = require('./package.json');
 
 
@@ -29,14 +27,7 @@ module.exports = {
 		vite: {
 			ssr: {
 				noExternal: Object.keys(pkg.dependencies || {})
-			},
-			plugins: [
-				viteFonts({
-				  google: {
-					families: ['Source Sans Pro']
-				  },
-				})
-			],
+			}
 		}
 	}
 };

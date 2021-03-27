@@ -54,5 +54,8 @@
 		"*.+(js|json|ts|svelte)": [
 			"yarn run format"
 		]
+	},
+	"dependencies": {
+		"svelte-feather-icons": "^3.3.0"
 	}
 }
