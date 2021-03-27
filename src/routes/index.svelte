@@ -7,7 +7,10 @@
 
 	<Counter />
 
-	<p>Visit <a class="text-blue-600 underline" href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte apps.</p>
+	<p>
+		Visit <a class="text-blue-600 underline" href="https://svelte.dev">svelte.dev</a> to learn how to
+		build Svelte apps.
+	</p>
 </main>
 
 <style style lang="postcss">
