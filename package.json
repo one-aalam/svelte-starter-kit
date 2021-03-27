@@ -15,14 +15,19 @@
 		"vite": "^2.1.0",
 		"typescript": "^4.0.0",
 		"tslib": "^2.0.0",
-		"svelte-preprocess": "^4.0.0",
+		"svelte-preprocess": "^4.6.9",
 		"@typescript-eslint/eslint-plugin": "^4.19.0",
 		"@typescript-eslint/parser": "^4.19.0",
 		"eslint": "^7.22.0",
 		"eslint-plugin-svelte3": "^3.1.0",
 		"prettier": "~2.2.1",
 		"prettier-plugin-svelte": "^2.2.0",
-		"eslint-config-prettier": "^8.1.0"
+		"eslint-config-prettier": "^8.1.0",
+		"autoprefixer": "^10.2.5",
+		"cssnano": "^4.1.10",
+		"postcss": "^8.2.7",
+		"postcss-load-config": "^3.0.1",
+		"tailwindcss": "^2.0.3"
 	},
 	"type": "module",
 	"engines": {
