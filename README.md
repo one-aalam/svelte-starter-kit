@@ -1,12 +1,12 @@
 # Svelte Starter Kit
 Boilerplate to quckly get up and running with Svelte, with
 
-- Typescript as the language choice
-- Tailwind CSS for quick styling without getting out of your HTML
-- ESLint for static code analysis
-- Prettier for code formatting
-- SEO pre-configured
-- Icons support out of the box
+- __Typescript__ as the language choice
+- __Tailwind CSS__ for quick styling without getting out of your HTML
+- __ESLint__ for static code analysis
+- __Prettier__ for code formatting
+- __SEO__ pre-configured
+- __Icons__ support out of the box
 
 # create-svelte
 
