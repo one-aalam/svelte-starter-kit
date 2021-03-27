@@ -1,4 +1,5 @@
 const { tailwindExtractor } = require('tailwindcss/lib/lib/purgeUnusedStyles');
+const { fontFamily } = require('tailwindcss/defaultTheme')
 
 module.exports = {
 	purge: {
@@ -16,7 +17,11 @@ module.exports = {
 		}
 	},
 	theme: {
-		extend: {}
+		fontFamily: {
+			sans: ['Varela Round', ...fontFamily.sans],
+		},
+		extend: {
+		}
 	},
 	variants: {
 		extend: {}
