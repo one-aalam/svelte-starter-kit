@@ -1,7 +1,13 @@
 <script lang="ts">
 	import SvelteSeo from "svelte-seo";
-	import Counter from '$lib/Counter.svelte';
 	import { handleAlert } from '$lib/alert'
+	import Modal from '$lib/Modal.svelte'
+
+	let isModalOpened = false
+
+	function toggleModal() {
+		isModalOpened = !isModalOpened;
+	}
 
 </script>
 
@@ -12,13 +18,20 @@
 
 <div>
 	<h1>Svelte Starter Kit!</h1>
-	<Counter />
-	<button on:click={() => handleAlert({text: 'Hey, Buddy', type: 'success'})}>Alert</button>
+	<button on:click={() => handleAlert({text: 'Hey, Buddy', type: 'success'})}>Show Alert</button>
+	<button on:click={toggleModal}>Show Modal</button>
 	<p>
 		Visit <a class="text-blue-600 underline" href="https://svelte.dev">svelte.dev</a> to learn how to
 		build Svelte apps.
 	</p>
 </div>
+
+{#if isModalOpened}
+	<Modal {toggleModal}>
+		<p>This is in the modal</p>
+		<button>Do something</button>
+	</Modal>
+{/if}
 
 <style style lang="postcss">
 	:root {
