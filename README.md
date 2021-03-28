@@ -7,6 +7,8 @@ Boilerplate to quckly get up and running with Svelte, with
 - __Prettier__ for code formatting
 - __SEO__ pre-configured
 - __Icons__ support out of the box
+and pre-made
+- __Messaging system__ `coz who don't uses one?
 
 # create-svelte
 
