@@ -4,7 +4,7 @@
 </script>
   
   
-<div class="modal fixed flex w-full h-full left-0 top-0 items-center justify-center">
+<div class="modal fixed flex w-full h-full left-0 top-0 items-center justify-center" role="alertdialog" aria-describedby="" aria-labelledby="">
     <div class="modal-content bg-green-500 text-white w-3/4 md:w-2/4  p-16 rounded-lg shadow-lg" transition:fly={{y: 40}}>
         <button on:click={toggleModal} class="drawer--close">X</button>
         <slot />
