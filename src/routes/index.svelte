@@ -1,8 +1,6 @@
 <script lang="ts">
 	import SvelteSeo from "svelte-seo";
 	import Counter from '$lib/Counter.svelte';
-	import { AirplayIcon } from 'svelte-feather-icons'
-	import Spinner from '$lib/Spinner.svelte'
 </script>
 
 <SvelteSeo
@@ -11,10 +9,8 @@
 />
 
 <div>
-	<h1>Hello world!</h1>
-	<AirplayIcon size="24" />
+	<h1>Svelte Starter Kit!</h1>
 	<Counter />
-	<Spinner size="lg"/>
 	<p>
 		Visit <a class="text-blue-600 underline" href="https://svelte.dev">svelte.dev</a> to learn how to
 		build Svelte apps.
