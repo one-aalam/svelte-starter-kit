@@ -1,6 +1,8 @@
 <script lang="ts">
 	import SvelteSeo from "svelte-seo";
 	import Counter from '$lib/Counter.svelte';
+	import { handleAlert } from '$lib/alert'
+
 </script>
 
 <SvelteSeo
@@ -11,6 +13,7 @@
 <div>
 	<h1>Svelte Starter Kit!</h1>
 	<Counter />
+	<button on:click={() => handleAlert({text: 'Hey, Buddy', type: 'success'})}>Alert</button>
 	<p>
 		Visit <a class="text-blue-600 underline" href="https://svelte.dev">svelte.dev</a> to learn how to
 		build Svelte apps.
@@ -31,7 +34,6 @@
 
 	h1 {
 		@apply text-red-600;
-		@apply uppercase;
 		@apply text-6xl;
 		@apply font-thin;
 		@apply leading-tight;
