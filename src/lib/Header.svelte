@@ -12,6 +12,6 @@
     {#if isNavOpened}
         <Navigation {toggleNav} />
     {/if}
-    <button on:click={toggleNav}><MenuIcon class="w-5 inline-block" /> Menu</button>
+    <!-- <button on:click={toggleNav}><MenuIcon class="w-5 inline-block" /> Menu</button> -->
     <slot/>
 </header>

@@ -7,7 +7,7 @@
 
 <Header/>
 <AlertList/>
-<main class="w-full h-screen mx-auto relative px-2 sm:px-6 lg:px-8 bg-gray-100">
+<main class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8 bg-gray-100">
 	<slot />
 </main>
 <Footer/>
