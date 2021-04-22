@@ -1,8 +1,9 @@
-<script>
+<script lang="ts">
 	import '../global.css';
 	import Header from '$lib/Header.svelte'
 	import Footer from '$lib/Footer.svelte'
 	import AlertList from '$lib/alert/AlertList.svelte'
+
 </script>
 
 <Header/>
