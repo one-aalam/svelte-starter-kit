@@ -51,6 +51,7 @@
     import { goto } from '$app/navigation';
     import Modal from '$lib/Modal.svelte'
     import { auth } from '$lib/supabase'
+    import { unsetAuthCookie } from '$lib/utils'
     // import { user } from '$lib/auth' // enable when using approach #3 (client-side user session)
 
     // Approach #3 (non-effective): If you're purely using the client-side supabase-maintained session comment out the approach #1. There would be a flash of unstyled content tho
@@ -58,6 +59,7 @@
 
     async function signOut() {
         await auth.signOut()
+        await unsetAuthCookie()
         goto('/')
     }
 
@@ -71,11 +73,11 @@
 </script>
 
 <div class="flex flex-col justify-center items-center relative">
-    <div className="p-2 flex flex-col place-items-center">
-        <img className="w-24 h-24 rounded-full bg-gray-900 bg-opacity-10" src="https://avatars.dicebear.com/api/avataaars/{ user ? user?.email : 'Explorer'}.svg" alt={ user ? user?.email : 'Explorer'} />
+    <div class="p-2 flex flex-col place-items-center">
+        <img class="w-24 h-24 rounded-full bg-gray-900 bg-opacity-10" src="https://avatars.dicebear.com/api/avataaars/{ user ? user?.email : 'Explorer'}.svg" alt={ user ? user?.email : 'Explorer'} />
 
-        <div className="mt-2">
-          <h3 className="text-xl mb-2 text-gray-200">user name </h3>
+        <div class="mt-2">
+          <h3 class="text-xl mb-2 text-gray-200">user name </h3>
         </div>
       </div>
     <h2 class="text-3xl my-4" on:click={toggleModal}>Howdie, { user ? user?.email : 'Explorer'}!</h2>

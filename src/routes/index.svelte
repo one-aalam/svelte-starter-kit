@@ -5,6 +5,7 @@
     import { LockIcon, GithubIcon } from 'svelte-feather-icons'
 	import { handleAlert } from '$lib/alert'
     import { supabaseClient } from '$lib/supabase'
+    import { setAuthCookie } from '$lib/utils'
     import Spinner from '$lib/Spinner.svelte'
 
     let isSignIn = true
@@ -17,15 +18,6 @@
     // form fields
     let email = '', password = ''
 
-    async function setServerSession(event: AuthChangeEvent, session: Session) {
-        await fetch('/api/auth.json', {
-            method: 'POST',
-            headers: new Headers({ 'Content-Type': 'application/json' }),
-            credentials: 'same-origin',
-            body: JSON.stringify({ event, session }),
-        })
-    }
-
     async function signUpOrSignIn() {
         loading = true
 
@@ -37,9 +29,9 @@
                 handleAlert({ type: "error", text: error.message})
             } else {
                 handleAlert({ type: "success", text: "Signed in successfully"})
+                await setAuthCookie(session)
+                goto('/profile')
             }
-            await setServerSession('SIGNED_IN', session)
-            goto('/profile')
         } else {
             const { error } = await supabaseClient.auth.signUp({
                 email, password
