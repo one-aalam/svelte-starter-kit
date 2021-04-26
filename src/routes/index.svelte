@@ -1,6 +1,5 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
-    import type{ AuthChangeEvent, Session } from '@supabase/supabase-js'
 	import SvelteSeo from "svelte-seo";
     import { LockIcon, GithubIcon } from 'svelte-feather-icons'
 	import { handleAlert } from '$lib/alert'
