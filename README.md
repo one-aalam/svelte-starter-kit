@@ -14,6 +14,12 @@ and pre-made
 - __Modal__ as you always come back to `em
 - __Menu__
 
+## Why SvelteKit?
+
+Landing from a different Full-stack UI framework(Next.js, NuxtJS, Angular Universal)? Here's few essential watches and readings -
+- [An update on SvelteKit](https://www.youtube.com/watch?v=fnr9XWvjJHw&t=19101s) (Rich Harris on SvelteKit - SvelteSummit)
+- [A short history of Svelte](https://dev.to/ajcwebdev/a-short-history-of-sveltekit-49lk)
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
