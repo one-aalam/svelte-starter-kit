@@ -1,12 +1,10 @@
 <script lang="ts">
-    import { goto } from '$app/navigation';
 	import SvelteSeo from "svelte-seo";
+    import { auth } from '$lib/supabase'
+    import { setServerSessionAndRedir } from '$lib/user'
     import { LockIcon, GithubIcon } from 'svelte-feather-icons'
 	import { handleAlert } from '$lib/alert'
-    import { supabaseClient } from '$lib/supabase'
-    import { setAuthCookie } from '$lib/utils'
-    import Spinner from '$lib/Spinner.svelte'
-    import { ROUTE_PROFILE } from '$lib/constants';
+    import Spinner from '$lib/components/Spinner.svelte'
 
     let isSignIn = true
     function toggleView() {
@@ -22,18 +20,17 @@
         loading = true
 
         if (isSignIn) {
-            const { error, session } = await supabaseClient.auth.signIn({
+            const { error, session } = await auth.signIn({
                 email, password
             })
             if (error) {
                 handleAlert({ type: "error", text: error.message})
             } else {
                 handleAlert({ type: "success", text: "Signed in successfully"})
-                await setAuthCookie(session)
-                goto(ROUTE_PROFILE)
+                setServerSessionAndRedir(session)
             }
         } else {
-            const { error } = await supabaseClient.auth.signUp({
+            const { error } = await auth.signUp({
                 email, password
             })
             if (error) {
@@ -47,7 +44,7 @@
 
     async function handleProviderSignIn(provider) {
         loading = true
-        const { error } = await supabaseClient.auth.signIn({ provider })
+        const { error } = await auth.signIn({ provider })
         if (error) handleAlert({ type: "error", text: error.message})
         loading = false
     }
@@ -65,7 +62,9 @@
     <div>
         <LockIcon size="3x" class="w-12 h-12 text-gray-600" />
     </div>
-    <h3 class="text-3xl text-gray-600">Supa<strong>Auth</strong>&nbsp;</h3>
+    <h3 class="text-5xl text-red-500"><strong>Svelte</strong></h3>
+    <h3 class="px-3 py-1 bg-gray-400 text-white uppercase mb-2">Starter Kit</h3>
+    <!-- <h3 class="text-3xl text-gray-600">Supa<strong>Auth</strong>&nbsp;</h3> -->
     <small>Please provide your <strong>email</strong> and <strong>password</strong> and {isSignIn ? 'Log In' : 'Sign Up' }</small>
 </div>
 <!-- Sign Up form -->
@@ -123,41 +122,3 @@
         {/if}
     </div>
 </div>
-
-<style style lang="postcss">
-	:root {
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-			'Open Sans', 'Helvetica Neue', sans-serif;
-	}
-
-	main {
-		@apply text-center;
-		@apply p-4;
-		@apply mx-auto;
-	}
-
-	h1 {
-		@apply text-red-600;
-		@apply text-6xl;
-		@apply font-thin;
-		@apply leading-tight;
-		@apply my-16 mx-auto;
-		@apply max-w-xs;
-	}
-
-	p {
-		@apply max-w-xs;
-		@apply my-8 mx-auto;
-		@apply leading-snug;
-	}
-
-	@screen sm {
-		h1 {
-			@apply max-w-none;
-		}
-
-		p {
-			@apply max-w-none;
-		}
-	}
-</style>

@@ -21,7 +21,7 @@ export async function post(req: Request /*, res: Response (read the notes below)
  * @type {import('@sveltejs/kit').RequestHandler}
  */
 export async function get(req: Request) {
-    const { user } = await req.context // refer hooks to see how this got populated
+    const { user } = await req.locals // refer hooks to see how this got populated
     return {
         body: {
             user
