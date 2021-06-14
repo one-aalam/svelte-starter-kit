@@ -1,4 +1,5 @@
 # Svelte Starter Kit
+<img src="./static/svelte-starter-kit.png" title="Svelte Starter Kit" />
 Boilerplate to quckly get up and running with Svelte, with
 
 - __Typescript__ as the language choice
