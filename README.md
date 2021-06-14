@@ -1,7 +1,11 @@
 # Svelte Starter Kit
 <img src="./static/svelte-starter-kit.png" title="Svelte Starter Kit" />
+
 Boilerplate to quckly get up and running with Svelte, with
 
+__Note: Refer the [auth-supabase](https://github.com/one-aalam/svelte-starter-kit/tree/auth-supabase) branch for all the latest and changes__
+
+This branch has
 - __Typescript__ as the language choice
 - __Tailwind CSS__ for quick styling without getting out of your HTML
 - __ESLint__ for static code analysis
