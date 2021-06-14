@@ -1,4 +1,5 @@
 # Svelte Starter Kit
+<img src="./static/svelte-starter-kit.png" title="Svelte Starter Kit" />
 Boilerplate to quckly get up and running with Svelte, with
 
 - __Typescript__ as the language choice
@@ -11,7 +12,7 @@ Boilerplate to quckly get up and running with Svelte, with
 and pre-made
 - __Alerts__ `coz who don't uses one?
 - __Modal__ as you always come back to `em
-- __Menu__ 
+- __Menu__
 
 # create-svelte
 
