@@ -3,6 +3,7 @@ const { fontFamily } = require('tailwindcss/defaultTheme')
 
 module.exports = {
 	purge: {
+        mode: 'jit',
 		content: ['./src/**/*.{html,js,svelte,ts}'],
 		options: {
 			defaultExtractor: (content) => [
