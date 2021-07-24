@@ -1,14 +1,24 @@
 <script lang="ts">
+    import { tick } from 'svelte'
 	import SvelteSeo from "svelte-seo";
     import { auth } from '$lib/supabase'
+    import { createQueryStore } from '$lib/utils/query'
     import { setServerSessionAndRedir } from '$lib/user'
     import { LockIcon, GithubIcon } from 'svelte-feather-icons'
 	import { handleAlert } from '$lib/alert'
     import Spinner from '$lib/components/Spinner.svelte'
 
-    let isSignIn = true
+    const regQuery = createQueryStore('reg')
+
+    let isSignIn: boolean = $regQuery ? false : true
     function toggleView() {
         isSignIn = !isSignIn
+        tick()
+        if(isSignIn) {
+            regQuery.unset()
+        } else {
+            regQuery.set(true)
+        }
     }
 
     // validation, message and loading state
@@ -49,6 +59,7 @@
         loading = false
     }
 
+    $: isSignIn =  $regQuery ? false : true
 </script>
 
 <SvelteSeo
