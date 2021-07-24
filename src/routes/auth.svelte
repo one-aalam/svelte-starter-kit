@@ -88,6 +88,7 @@
     </div>
     <div class="mb-4">
         <label for="password" class="block font-semibold text-gray-800 mb-2 text-left">Password</label>
+
         <input
         id="password"
         name="password"
@@ -109,7 +110,7 @@
         <small class="block text-gray-600">
             {isSignIn ? 'Not a member yet?' : 'Already a member?'}
         </small>
-        <a class="block font-semibold" href="" on:click|preventDefault={toggleView} >
+        <a class="block font-semibold" href="/auth" on:click|preventDefault={toggleView} >
             {isSignIn ?  'Sign Up' : 'Log In' }
         </a>
         </div>
