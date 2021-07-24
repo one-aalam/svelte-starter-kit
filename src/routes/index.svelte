@@ -1,6 +1,6 @@
 <script lang="ts">
 	import SvelteSeo from "svelte-seo";
-	import { handleAlert } from '$lib/alert'
+	import { handleAlert } from '../lib/alert'
 	import Modal from '$lib/Modal.svelte'
 
 	let isModalOpened = false
