@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-    import { API_AUTH } from '$lib/constants'
+    import { API_AUTH, ROUTE_HOME } from '$lib/constants'
 
     function response(user) {
         if (user && !user.guest) {
@@ -10,7 +10,7 @@
             };
         } else {
             return {
-                redirect:  "/",
+                redirect:  ROUTE_HOME,
                 status: 302
             }
         }
@@ -38,7 +38,8 @@
 <script lang="ts">
     import { onMount } from 'svelte'
     import { ChromeIcon } from 'svelte-feather-icons'
-    import { signOut, getCurrUserProfile, updCurrUserProfile, updCurrUserAvatar, getAvatar } from '$lib/user'
+    import type{ ProfileAttrs } from '$lib/user'
+    import { signOut, getCurrUserProfile, updCurrUserProfile, updCurrUserAvatar, getAvatar, profile } from '$lib/user'
     import { handleAlert } from '$lib/alert'
     import Modal from '$lib/components/Modal.svelte'
     import Avatar from '$lib/components/Avatar.svelte'
@@ -49,20 +50,24 @@
     // import { user } from '$lib/user'
     // if(browser && !$user) goto('/')
 
-    let username, website, avatar_url = ''
     let loading = false
+    let profileState: ProfileAttrs = {
+        username: '',
+        website: '',
+        avatar_url: ''
+    }
 
     async function getProfile() {
         try {
             loading = true
-            let { data: profile , error } = await getCurrUserProfile()
+            let { data: { username, website, avatar_url } , error } = await getCurrUserProfile()
             if (error) {
                 handleAlert({ type: 'default', text: 'First login? Could you please update your profile? 🙂' })
             }
 
-            username = profile.username
-            website = profile.website
-            avatar_url = await getAvatar(profile.avatar_url)
+            avatar_url = await getAvatar(avatar_url)
+            profileState = { username, website, avatar_url }
+            profile.set({ ...profileState })
 
         } catch (error) {
             handleAlert({ type: 'error', text: error.message })
@@ -75,13 +80,15 @@
         try {
             loading = true
 
-            let { data: [ profile ], error: updateError } = await updCurrUserProfile({ username, website})
+            let { data: [{ username, website }], error: updateError } = await updCurrUserProfile({
+                username: profileState.username,
+                website: profileState.website
+            })
             if (updateError) {
                 throw updateError
             }
 
-            username = profile.username
-            website = profile.website
+            profile.update((profile) => ({ ...profile, username, website }))
 
         } catch (error) {
             handleAlert({ type: 'error', text: error.message })
@@ -98,13 +105,14 @@
                 throw 'You must select an image to upload.'
             }
             loading = true
-            let { data: [ profile ], error: updateError } = await updCurrUserAvatar(target.files[0])
+            let { data: [ { avatar_url } ], error: updateError } = await updCurrUserAvatar(target.files[0])
 
             if (updateError) {
                 throw updateError
             }
 
-            avatar_url = await getAvatar(profile.avatar_url)
+            avatar_url = await getAvatar(avatar_url)
+            profile.update((profile) => ({ ...profile, avatar_url }))
 
         } catch (error) {
             handleAlert({ type: 'error', text: error.message })
@@ -121,8 +129,8 @@
         isModalOpened = !isModalOpened;
     }
 
-    $: username = username ? username : ( user ? user?.email : 'Explorer' )
-    $: avatar_url = avatar_url ? avatar_url : URL_DICEBEAR + username + '.svg'
+    $: username = $profile.username ? $profile.username : ( user ? user?.email : 'Explorer' )
+    $: avatar_url = $profile.avatar_url ? $profile.avatar_url : URL_DICEBEAR + username + '.svg'
 
     export let user //  When using approach #3 (client-side user session) comment this out and replace `user` with `$user` in the template
 </script>
@@ -135,7 +143,7 @@
       </div>
     <div class="profile-detail my-4" on:click={toggleModal}>
         <h2 class="text-4xl mb-1">Howdie, { username }!</h2>
-        <span class="inline-block px-2 py-1 bg-gray-400 text-white rounded-full"><ChromeIcon class="inline-block" size="1x"/> {website}</span>
+        <span class="inline-block px-2 py-1 bg-gray-400 text-white rounded-full"><ChromeIcon class="inline-block" size="1x"/> {$profile.website}</span>
         <div class="text-gray-500 text-sm my-1">(click to update)</div>
     </div>
 
@@ -169,7 +177,7 @@
                 class="h-12 px-4 py-2 bg-white rounded shadow-inner border-gray-300 w-full border  hover:border-gray-400 text-gray-700"
                 placeholder="Your Username"
                 required
-                bind:value={username}
+                bind:value={profileState.username}
                 />
             </div>
             <div class="mb-4">
@@ -180,7 +188,7 @@
                 type="website"
                 class="h-12 px-4 py-2 bg-white rounded shadow-inner border-gray-300 w-full border hover:border-gray-400 text-gray-700"
                 placeholder="Your website"
-                bind:value={website}
+                bind:value={profileState.website}
                 />
             </div>
         </div>
