@@ -13,6 +13,7 @@
 <script lang="ts">
 	import SvelteSeo from "svelte-seo";
     import { ArchiveIcon } from 'svelte-feather-icons';
+    import Container from '$lib/components/Container.svelte'
 
     export let user;
 </script>
@@ -21,8 +22,7 @@
   title="Svelte Starter Kit | Home"
   description="Svelte with brilliant bells and useful whistles"
 />
-<div class="flex flex-col justify-center items-center relative">
-    </div>
+<Container>
 <!-- <img src="/static/undraw_access_denied_re_awnf.svg" alt="" /> -->
 <!-- App logo and tagline -->
 <div class="w-full text-center mb-4 flex flex-col place-items-center">
@@ -40,3 +40,4 @@
         <a class="bg-gray-500 border border-gray-600 text-white px-4 py-2 rounded shadow" href="/profile" title="View Profile">View Profile</a>
     {/if}
 </div>
+</Container>

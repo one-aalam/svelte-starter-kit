@@ -1,11 +1,12 @@
 <script lang="ts">
     import { tick } from 'svelte'
 	import SvelteSeo from "svelte-seo";
+    import { LockIcon, GithubIcon } from 'svelte-feather-icons'
     import { auth } from '$lib/supabase'
     import { createQueryStore } from '$lib/utils/query'
     import { setServerSessionAndRedir } from '$lib/user'
-    import { LockIcon, GithubIcon } from 'svelte-feather-icons'
 	import { handleAlert } from '$lib/alert'
+    import Container from '$lib/components/Container.svelte'
     import Spinner from '$lib/components/Spinner.svelte'
 
     const regQuery = createQueryStore('reg')
@@ -66,7 +67,7 @@
   title="Svelte Starter Kit | Auth"
   description="Svelte with brilliant bells and useful whistles"
 />
-<div class="flex flex-col justify-center items-center relative">
+<Container>
 <!-- <img src="/static/undraw_access_denied_re_awnf.svg" alt="" /> -->
 <!-- App logo and tagline -->
 <div class="w-full text-center mb-4 flex  flex-col place-items-center">
@@ -133,4 +134,4 @@
             <Spinner/>
         {/if}
     </div>
-</div>
+</Container>
