@@ -40,7 +40,6 @@
     import { ChromeIcon } from 'svelte-feather-icons'
     import type{ ProfileAttrs } from '$lib/user'
     import { signOut, getCurrUserProfile, updCurrUserProfile, updCurrUserAvatar, getAvatar, profile } from '$lib/user'
-    import Container from '$lib/components/Container.svelte'
     import { handleAlert } from '$lib/alert'
     import Modal from '$lib/components/Modal.svelte'
     import Avatar from '$lib/components/Avatar.svelte'
@@ -136,7 +135,7 @@
     export let user //  When using approach #3 (client-side user session) comment this out and replace `user` with `$user` in the template
 </script>
 
-<Container>
+<div class="flex flex-col justify-center items-center relative">
     <div class="p-2 flex flex-col place-items-center">
         <div class="mt-2">
             <Avatar on:change={updAvatar} src="{avatar_url}" title={username} loading={loading} />
@@ -161,7 +160,7 @@
             <small class="bg-gray-800 text-white px-4 py-2 w-full inline-block">{JSON.stringify(user)}</small>
         </div>
     {/if}
-</Container>
+</div>
 
 {#if isModalOpened}
 	<Modal {toggleModal}>

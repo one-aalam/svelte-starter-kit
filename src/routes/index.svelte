@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
 
-    export async function load({ page, fetch, session, context }) {
+    export async function load({ session }) {
         const { user } = session
         return {
             props: {
@@ -13,16 +13,15 @@
 <script lang="ts">
 	import SvelteSeo from "svelte-seo";
     import { ArchiveIcon } from 'svelte-feather-icons';
-    import Container from '$lib/components/Container.svelte'
 
-    export let user;
+    export let user
 </script>
 
 <SvelteSeo
   title="Svelte Starter Kit | Home"
   description="Svelte with brilliant bells and useful whistles"
 />
-<Container>
+<div class="flex flex-col justify-center items-center relative">
 <!-- <img src="/static/undraw_access_denied_re_awnf.svg" alt="" /> -->
 <!-- App logo and tagline -->
 <div class="w-full text-center mb-4 flex flex-col place-items-center">
@@ -34,10 +33,10 @@
         <h3 class="px-3 py-1 text-2xl bg-gray-400 text-white uppercase">Starter Kit</h3>
         <small class="uppercase font-semibold text-gray-800 mt-4"> Typescript - TailwindCSS - <small class="bg-green-700 text-white px-2">Supabase</small> Authentication + Profile - Alert, Modal, etc.</small>
     </div>
-    {#if user?.guest}
-        <a class="bg-gray-500 border border-gray-600 text-white px-4 py-2 rounded shadow" href="/auth" title="Sign Up or Sign In">Get Started</a>
-    {:else}
+    {#if user && !user.guest}
         <a class="bg-gray-500 border border-gray-600 text-white px-4 py-2 rounded shadow" href="/profile" title="View Profile">View Profile</a>
+    {:else}
+        <a class="bg-gray-500 border border-gray-600 text-white px-4 py-2 rounded shadow" href="/auth" title="Sign Up or Sign In">Get Started</a>
     {/if}
 </div>
-</Container>
+</div>
