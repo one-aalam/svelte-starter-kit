@@ -4,3 +4,4 @@ node_modules
 /build
 /functions
 .svelte-kit
+.env.local
