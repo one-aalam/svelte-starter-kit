@@ -9,7 +9,7 @@ type AlertType = "default" | "success" | "error"
 
 export const alerts = writable<Array<Alert>>([])
 
-export const handleAlert = (alert: Alert) => {
+export const handleAlert = (alert: Alert): void => {
     alerts.update(alerts => alerts.concat([alert]))
     setTimeout(() => {
         alerts.update(alerts => alerts.slice(1))
