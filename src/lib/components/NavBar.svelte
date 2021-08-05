@@ -33,7 +33,4 @@
 </nav>
 
 <style lang="postcss">
-    .disabled {
-        @apply opacity-50
-    }
 </style>
