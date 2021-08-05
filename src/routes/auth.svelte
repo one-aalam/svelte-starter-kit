@@ -1,10 +1,10 @@
 <script lang="ts">
     import { tick } from 'svelte'
-	import SvelteSeo from "svelte-seo";
     import { LockIcon, GithubIcon } from 'svelte-feather-icons'
     import { auth } from '$lib/supabase'
     import { createQueryStore } from '$lib/utils/query'
     import { setServerSessionAndRedir } from '$lib/user'
+    import Seo from '$lib/components/SEO.svelte'
 	import { handleAlert } from '$lib/alert'
     import Spinner from '$lib/components/Spinner.svelte'
 
@@ -62,10 +62,7 @@
     $: isSignIn =  $regQuery ? false : true
 </script>
 
-<SvelteSeo
-  title="Svelte Starter Kit | Auth"
-  description="Svelte with brilliant bells and useful whistles"
-/>
+<Seo title={`Auth - ${isSignIn ? 'Log In' : 'Sign Up'}`} />
 <div class="flex flex-col justify-center items-center relative">
 <!-- <img src="/static/undraw_access_denied_re_awnf.svg" alt="" /> -->
 <!-- App logo and tagline -->

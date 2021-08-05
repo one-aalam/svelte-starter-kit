@@ -11,16 +11,13 @@
 </script>
 
 <script lang="ts">
-	import SvelteSeo from "svelte-seo";
+    import Seo from '$lib/components/SEO.svelte'
     import { ArchiveIcon } from 'svelte-feather-icons';
 
     export let user
 </script>
 
-<SvelteSeo
-  title="Svelte Starter Kit | Home"
-  description="Svelte with brilliant bells and useful whistles"
-/>
+<Seo title="Home"/>
 <div class="flex flex-col justify-center items-center relative">
 <!-- <img src="/static/undraw_access_denied_re_awnf.svg" alt="" /> -->
 <!-- App logo and tagline -->
