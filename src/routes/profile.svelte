@@ -164,7 +164,6 @@
 
 {#if isModalOpened}
 	<Modal {toggleModal}>
-		<!-- <h2 class="text-3xl my-4">Howdie, { user ? user?.email : 'Explorer'}!</h2> -->
         <h2 class="text-3xl my-4">Update Profile</h2>
         <hr class="my-4"/>
         <div class="">
