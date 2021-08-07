@@ -34,7 +34,7 @@
         <input
             class="form__field form__field--number"
             type="number" {name}
-            placeholder={label}
+            placeholder={label} autocorrect="off" autocapitalize="none"
             class:has-error={!$isField.valid }
             use:validateField={value}
             bind:value on:input={handleInput} />
@@ -42,7 +42,7 @@
         <input
             class="form__field form__field--password"
             type="password" {name}
-            placeholder={label}
+            placeholder={label} autocorrect="off" autocapitalize="none"
             class:has-error={!$isField.valid }
             use:validateField={value}
             bind:value on:input={handleInput} />
@@ -50,7 +50,7 @@
         <input
             class="form__field form__field--text"
             type="text"  {name}
-            placeholder={label}
+            placeholder={label} autocorrect="off" autocapitalize="none"
             class:has-error={!$isField.valid }
             use:validateField={value}
             bind:value on:input={handleInput} />
