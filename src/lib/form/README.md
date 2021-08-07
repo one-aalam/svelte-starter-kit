@@ -45,3 +45,19 @@ Attach the validator to the target input type, like shown below
         {/if}
     {/if}
 ```
+
+## Action: Ajaxify
+Just takes the field values and submit to the API provided by form `action`
+
+Import
+```ts
+    import { ajaxify } from '$lib/form/ajaxify'
+```
+Apply
+```html
+    <form method="POST" action="https://jsonplaceholder.typicode.com/todos" use:ajaxify={{onResponse: (data) => console.log(data)}}>
+        <input name="title" />
+        <button type="submit">save</button>
+    </form>
+```
+and, done!
