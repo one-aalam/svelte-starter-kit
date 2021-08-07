@@ -12,14 +12,12 @@
 
 <script lang="ts">
     import Seo from '$lib/components/SEO.svelte'
-    import { ArchiveIcon } from 'svelte-feather-icons';
-
+    import { ArchiveIcon } from 'svelte-feather-icons'
     export let user
 </script>
 
 <Seo title="Home"/>
 <div class="flex flex-col justify-center items-center relative">
-<!-- <img src="/static/undraw_access_denied_re_awnf.svg" alt="" /> -->
 <!-- App logo and tagline -->
 <div class="w-full text-center mb-4 flex flex-col place-items-center">
     <div class="banner flex flex-col place-items-center mt-32 mb-4">
