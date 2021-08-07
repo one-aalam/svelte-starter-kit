@@ -41,6 +41,7 @@
     import type{ ProfileAttrs } from '$lib/user'
     import { signOut, getCurrUserProfile, updCurrUserProfile, updCurrUserAvatar, getAvatar, profile } from '$lib/user'
     import { handleAlert } from '$lib/alert'
+    import Seo from '$lib/components/SEO.svelte'
     import Modal from '$lib/components/Modal.svelte'
     import Avatar from '$lib/components/Avatar.svelte'
     import { URL_DICEBEAR } from '$lib/constants'
@@ -134,7 +135,7 @@
 
     export let user //  When using approach #3 (client-side user session) comment this out and replace `user` with `$user` in the template
 </script>
-
+<Seo title="Profile"/>
 <div class="flex flex-col justify-center items-center relative">
     <div class="p-2 flex flex-col place-items-center">
         <div class="mt-2">
