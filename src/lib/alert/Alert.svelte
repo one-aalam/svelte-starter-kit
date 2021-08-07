@@ -15,18 +15,30 @@
         class:alert--error={alert.type === 'error'}
         transition:fly={{y: 100}}
     >
-        <p>
-            {#if alert.type === 'success'} <CheckCircleIcon class="w-6 inline-block"/> {:else} <AlertCircleIcon class="w-6 inline-block"/> {/if}
-            &nbsp; {alert.text}
+        <div class="alert__content">
+            {#if alert.type === 'success'}
+                <CheckCircleIcon class="w-6 inline-block"/>
+            {:else}
+                <AlertCircleIcon class="w-6 inline-block"/>
+            {/if}
+            <p>
+                {@html alert.text}
+            </p>
             <button class="alert__action-close" on:click={() => (isVisible = !isVisible)} on:click={() => clearTimeout(clearAlertTimeout())}>
                 <XIcon class="w-3 inline-block"/>
             </button>
-        </p>
+        </div>
     </aside>
 {/if}
 <style lang="postcss">
     .alert {
-        @apply shadow-md rounded px-3 py-2 transition-all mt-2 bg-gray-100 text-gray-800
+        @apply block shadow-md rounded px-3 py-2 transition-all mt-2 bg-gray-100 text-gray-800
+    }
+    .alert__content {
+        @apply flex gap-2
+    }
+    .alert__content p {
+        @apply max-w-xs break-words text-base
     }
     .alert--success {
         @apply bg-green-300 text-gray-800
