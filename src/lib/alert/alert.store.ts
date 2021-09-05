@@ -1,18 +1,13 @@
 import { writable } from "svelte/store"
-
-type Alert = {
-    text: string,
-    type: AlertType
-}
-
-type AlertType = "default" | "success" | "error"
+import type { Alert } from './alert.type'
+import { ALERT_FADE_IN } from './alert.config'
 
 export const alerts = writable<Array<Alert>>([])
 
-export const handleAlert = (alert: Alert) => {
+export const handleAlert = (alert: Alert): void => {
     alerts.update(alerts => alerts.concat([alert]))
-    setTimeout(() => {
-        alerts.update(alerts => alerts.slice(1))
-    }, 5000);
+    clearAlertTimeout()
 }
 
+export const clearAlert = () => alerts.update(alerts => alerts.slice(1))
+export const clearAlertTimeout = () => setTimeout(clearAlert, ALERT_FADE_IN)

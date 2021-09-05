@@ -1,5 +1,7 @@
 import sveltePreprocess from 'svelte-preprocess';
 import node from '@sveltejs/adapter-node';
+// import pkg from './package.json';
+
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {
@@ -22,9 +24,10 @@ export default {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
 
-		vite: {
-			ssr: {
-			}
-		}
+		// vite: {
+		// 	ssr: {
+		// 		noExternal: Object.keys(pkg.dependencies || {})
+		// 	}
+		// }
 	}
 };
