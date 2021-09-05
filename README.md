@@ -3,7 +3,7 @@
 
 Boilerplate to quckly get up and running with Svelte, with
 
-__Note: This is the `basic` branch for the Starter Kit. It contains SvelteKit with no third-party integrations. Refer the [main](https://github.com/one-aalam/svelte-starter-kit/tree/main) branch for all the latest changes with Supabase integration. __
+__Note__: This is the `basic` branch for the Starter Kit. It contains SvelteKit with no third-party integrations. Refer the [main](https://github.com/one-aalam/svelte-starter-kit/tree/main) branch for all the latest changes with Supabase integration.
 
 This branch has
 - __Typescript__ as the language choice
