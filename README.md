@@ -1,4 +1,8 @@
 # Svelte Starter Kit
+
+__This branch got merged with the [main](https://github.com/one-aalam/svelte-starter-kit) branch on 5th Sep, 2021 considering the inconvenience associated with serving the primary purpose through a sub-branch. Please check the [main](https://github.com/one-aalam/svelte-starter-kit) branch for the updated `SvelteKit` + `Supabase` changes.__
+
+
 <img src="./static/svelte-starter-kit.png" title="Svelte Starter Kit" />
 Boilerplate to quckly get up and running with Svelte, with
 
