@@ -63,7 +63,7 @@
             loading = true
             let { data: { username, website, avatar_url } , error } = await getCurrUserProfile()
             if (error) {
-                handleAlert({ type: 'default', text: 'First login? Could you please update your profile? 🙂' })
+                handleAlert({ type: 'default', text: 'First login? You wanna update your profile details? 🙂' })
             }
 
             avatar_url = await getAvatar(avatar_url)
@@ -71,7 +71,13 @@
             profile.set({ ...profileState })
 
         } catch (error) {
-            handleAlert({ type: 'error', text: error.message })
+            if(error instanceof TypeError) {
+                handleAlert({ type: 'default', text: 'First login? You wanna update your profile details? 🙂' })
+            } else if(error.message === 'The resource was not found') {
+                handleAlert({ type: 'default', text: 'You know? You can click on the randomly generated avatar to update your profile picture.' })
+            } else {
+                handleAlert({ type: 'error', text: error.message })
+            }
         } finally {
             loading = false
         }

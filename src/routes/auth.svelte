@@ -3,7 +3,6 @@
     import { LockIcon, GithubIcon } from 'svelte-feather-icons'
     import { auth } from '$lib/supabase'
     import { createQueryStore } from '$lib/utils/query'
-    import { setServerSessionAndRedir } from '$lib/user'
     import Seo from '$lib/components/SEO.svelte'
 	import { handleAlert } from '$lib/alert'
     import Spinner from '$lib/components/Spinner.svelte'
@@ -37,7 +36,6 @@
                 handleAlert({ type: "error", text: error.message})
             } else {
                 handleAlert({ type: "success", text: "Signed in successfully"})
-                setServerSessionAndRedir(session)
             }
         } else {
             const { error } = await auth.signUp({
