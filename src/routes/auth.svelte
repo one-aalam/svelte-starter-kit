@@ -38,13 +38,15 @@
                 handleAlert({ type: "success", text: "Signed in successfully"})
             }
         } else {
-            const { error } = await auth.signUp({
+            const { error, session } = await auth.signUp({
                 email, password
             })
             if (error) {
                 handleAlert({ type: "error", text: error.message})
             } else {
-                handleAlert({ type: "error", text: "Registered. Please confirm your email"})
+                if(session?.user?.email_confirmed_at == null){
+                    handleAlert({ type: "error", text: "Registered. Please confirm your email"})    
+                }
             }
         }
         loading = false
