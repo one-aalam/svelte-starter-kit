@@ -78,7 +78,7 @@
 <!-- Sign Up form -->
 <form class="w-full sm:w-1/2 xl:w-5/12" on:submit|preventDefault={signUpOrSignIn} >
     <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg" style="background: url(/undraw_access_denied_re_awnf.svg) no-repeat rgba(76, 175, 80, 0.1)">
-    <button class="flex-1 bg-gray-200 text-green-700 py-3 rounded w-full text-center shadow" on:click|preventDefault={() => handleProviderSignIn('github')}>
+    <button type="button" class="flex-1 bg-gray-200 text-green-700 py-3 rounded w-full text-center shadow" on:click|preventDefault={() => handleProviderSignIn('github')}>
         <GithubIcon size="1x" class="inline-block "/> {isSignIn ? 'Log In' : 'Sign Up' } with <strong>Github</strong>
     </button>
     <hr class="my-4"/>
