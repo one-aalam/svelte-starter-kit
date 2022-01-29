@@ -53,9 +53,9 @@
         @apply right-2
     }
 
-    .modal__action-close.modal__action-close--sidepanel {
+    /* .modal__action-close.modal__action-close--sidepanel {
         @apply top-3 -left-2
-    }
+    } */
 
     .modal__action-close:hover {
         @apply text-gray-500 bg-gray-200
