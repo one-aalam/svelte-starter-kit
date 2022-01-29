@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { page } from '$app/stores'
+    import { page, url } from '$app/stores'
     import { signOut } from '$lib/user'
     import { user } from '$lib/user'
 </script>
@@ -7,7 +7,7 @@
     <ul class="list-none h-full flex items-center justify-end gap-3">
         {#if $user}
             <li class="nav__item">
-                <a rel="prefetch" href="/settings" class:active={$page.path === '/settings'}>
+                <a rel="prefetch" href="/settings" class:active={new URL($page.url).pathname === '/settings'}>
 						<i class="ion-gear-a" />
 				</a>
             </li>

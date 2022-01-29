@@ -28,7 +28,7 @@ export function createQueryStore(key: string) {
   return {
     subscribe: handler => {
       return page.subscribe(path =>{
-        query = queryParamsToObject(path.query)
+        query = queryParamsToObject(path.url.searchParams)
         handler(query[key])
       })
     },

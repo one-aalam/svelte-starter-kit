@@ -12,7 +12,7 @@ export function expressifyResp(resp) {
         ...resp,
         getHeader: (header) => resp.headers[header.toLowerCase()],
         setHeader: (header, value) => resp.headers[header.toLowerCase()] = value,
-        status: (p) => ({json: (p) => {}})
+        status: (p) => ({json: (p) => {}, end: (p) => {}})
     }
 }
 

@@ -45,7 +45,7 @@
                 handleAlert({ type: "error", text: error.message})
             } else {
                 if(session?.user?.email_confirmed_at == null){
-                    handleAlert({ type: "error", text: "Registered. Please confirm your email"})    
+                    handleAlert({ type: "error", text: "Registered. Please confirm your email"})
                 }
             }
         }
@@ -76,7 +76,7 @@
     <small>Please provide your <strong>email</strong> and <strong>password</strong> and {isSignIn ? 'Log In' : 'Sign Up' }</small>
 </div>
 <!-- Sign Up form -->
-<form class="w-full sm:w-1/2 xl:w-5/12" on:submit|preventDefault={signUpOrSignIn} >
+<form class="w-full sm:w-1/2 xl:w-5/12" method="post" on:submit|preventDefault={signUpOrSignIn} >
     <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg" style="background: url(/undraw_access_denied_re_awnf.svg) no-repeat rgba(76, 175, 80, 0.1)">
     <button type="button" class="flex-1 bg-gray-200 text-green-700 py-3 rounded w-full text-center shadow" on:click|preventDefault={() => handleProviderSignIn('github')}>
         <GithubIcon size="1x" class="inline-block "/> {isSignIn ? 'Log In' : 'Sign Up' } with <strong>Github</strong>
