@@ -1,5 +1,5 @@
 <br>
-<style>
+<style lang="postcss">
     br {
         @apply my-2;
     }

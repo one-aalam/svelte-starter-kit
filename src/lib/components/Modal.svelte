@@ -12,7 +12,7 @@
     <div on:click={toggleModal} transition:scale={{ start: 1.5, duration: 1000 }} class="modal-bg absolute w-full h-full opacity-80" />
 </div>
 
-<style>
+<style lang="postcss">
     .modal-bg {
         z-index: -1;
         background: linear-gradient(142deg, var(--red) 3.62%, var(--green) 100%);

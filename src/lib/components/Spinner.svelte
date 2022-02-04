@@ -7,7 +7,7 @@
 <div class="gg-spinner {size}">
 
 </div>
-<style>
+<style lang="postcss">
 .gg-spinner {
     transform: scale(var(--ggs,1))
 }
