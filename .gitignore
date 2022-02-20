@@ -6,3 +6,5 @@ node_modules
 .env
 .env.local
 .svelte-kit
+.pnpm*
+pnpm*
