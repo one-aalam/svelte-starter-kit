@@ -1,5 +1,5 @@
 <script>
-    // @todo : change filename and functiom
+	// @todo : change filename and functiom
 	import { onMount } from 'svelte';
 	let p = 0;
 	let visible = false;
@@ -13,6 +13,16 @@
 		setTimeout(next, 250);
 	});
 </script>
+
+{#if visible}
+	<div class="progress-container">
+		<div class="progress" style="width: {p * 100}%" />
+	</div>
+{/if}
+
+{#if p >= 0.4}
+	<div class="fade" />
+{/if}
 
 <style lang="postcss">
 	.progress-container {
@@ -52,13 +62,3 @@
 		}
 	}
 </style>
-
-{#if visible}
-	<div class="progress-container">
-		<div class="progress" style="width: {p * 100}%" />
-	</div>
-{/if}
-
-{#if p >= 0.4}
-	<div class="fade" />
-{/if}

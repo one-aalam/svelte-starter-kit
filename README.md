@@ -1,34 +1,40 @@
 # Svelte Starter Kit
+
 _Svelte Starter Kit_ is an opinionated boilerplate based off of [SvelteKit](https://kit.svelte.dev/), with all the bells and whistles you want ready, up and running when starting any Full-stack Svelte/Javascript project. Out of the box you get all the `essentials`
-- __Typescript__ as the language choice
-- __Tailwind CSS__ for quick styling without getting out of your HTML
-- __ESLint__ and __Prettier__ for static code analysis and code formatting
-- __SEO__ pre-configured
+
+- **Typescript** as the language choice
+- **Tailwind CSS** for quick styling without getting out of your HTML
+- **ESLint** and **Prettier** for static code analysis and code formatting
+- **SEO** pre-configured
 
 with [Supabase](https://supabase.io/) as the 3rd Party Persistence Layer for
-- __Authentication System__ with Supabase GoTrue
-- __User Profiles__ available on `/profile` as an example for Supabase PostgREST (CRUD API)
-- __User Avatar__ which is Supbase Storage(AWS S3 backed effortless uploads) supported
+
+- **Authentication System** with Supabase GoTrue
+- **User Profiles** available on `/profile` as an example for Supabase PostgREST (CRUD API)
+- **User Avatar** which is Supbase Storage(AWS S3 backed effortless uploads) supported
 
 and a huge bunch of pre-made, hand-rolled(easily replace-able) components, that you almost always end up installing/using for any non-trivial project
-- __Alert/Toast__ to notify your users of the outcome of an event - `success, `error` or `default` is supported
-- __Modal__(with multiple Modal and Sidepanel support) as you always come back to `em
-- __Loaders__(two types) for reporting the progress of an API call + a page load
-- __Popover__ for contextual menus
-- __Form Helpers__ for basic input types, validation and submission
 
+- **Alert/Toast** to notify your users of the outcome of an event - `success, `error`or`default` is supported
+- **Modal**(with multiple Modal and Sidepanel support) as you always come back to `em
+- **Loaders**(two types) for reporting the progress of an API call + a page load
+- **Popover** for contextual menus
+- **Form Helpers** for basic input types, validation and submission
 
 <!-- <img src="./static/svelte-starter-kit.png" title="Svelte Starter Kit" />
 Boilerplate to quckly get up and running with Svelte + Supabase, with -->
 
-__Note__: Refer the [basic](https://github.com/one-aalam/svelte-starter-kit/tree/basic) branch for a bare minimum starter structure with all the `essentials`
+**Note**: Refer the [basic](https://github.com/one-aalam/svelte-starter-kit/tree/basic) branch for a bare minimum starter structure with all the `essentials`
 
 ## How to Setup?
+
 If new to Supabase
+
 - Create account at [Supabase](https://app.supabase.io/)
 - Create a Organisation, and a project
 
 Once done, or if you already have a Supabase project
+
 - Copy the generated project's API authentication details from `https://app.supabase.io/project/<your-awesome-svelte-project>/api/default?page=auth`
 - Place the details in `.env`/`.env.local` as `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`</li>
 - Install NPM dependencies
@@ -77,6 +83,7 @@ create policy "Anyone can upload an avatar."
 ```
 
 `profiles` table's chnages are not observed in real-time due to performance reasons. If needed, execute the following query
+
 ```sql
 begin;
   drop publication if exists supabase_realtime;
@@ -85,16 +92,17 @@ commit;
 alter publication supabase_realtime add table profiles;
 ```
 
-
 and get started by running `yarn dev`
 
 ## Why SvelteKit?
 
 Landing from a different Full-stack UI framework(Next.js, NuxtJS, Angular Universal)? Here's few essential watches and readings -
+
 - [An update on SvelteKit](https://www.youtube.com/watch?v=fnr9XWvjJHw&t=19101s) (Rich Harris on SvelteKit - SvelteSummit)
 - [A short history of Svelte](https://dev.to/ajcwebdev/a-short-history-of-sveltekit-49lk)
 
 ## Why Supabase?
+
 - https://aalam.in/blog/supabase-the-open-source-firebase-alternative (Supabase has storage now, and something better than functions could land anytime soon)
 
 ## Building

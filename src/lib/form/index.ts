@@ -1,2 +1,2 @@
-export * from './validator'
-export * from './ajaxify'
+export * from './validator';
+export * from './ajaxify';

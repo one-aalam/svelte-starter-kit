@@ -1,6 +1,6 @@
 export type Alert = {
-    text: string
-    type: AlertType
-}
+	text: string;
+	type: AlertType;
+};
 
-export type AlertType = 'default' | 'success' | 'error'
+export type AlertType = 'default' | 'success' | 'error';

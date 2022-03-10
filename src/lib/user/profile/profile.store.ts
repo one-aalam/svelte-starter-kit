@@ -1,9 +1,8 @@
-import { writable } from 'svelte/store'
-import type{ ProfileAttrs } from './profile.type'
-
+import { writable } from 'svelte/store';
+import type { ProfileAttrs } from './profile.type';
 
 export const profile = writable<ProfileAttrs>({
-    username: '',
-    website: '',
-    avatar_url: ''
+	username: '',
+	website: '',
+	avatar_url: ''
 });

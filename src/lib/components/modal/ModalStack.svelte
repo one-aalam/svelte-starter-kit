@@ -1,13 +1,18 @@
 <script lang="ts">
-    import { modals } from './modal.store'
+	import { modals } from './modal.store';
 </script>
 
 {#if $modals.length}
-    <slot name="backdrop" />
+	<slot name="backdrop" />
 {/if}
 
 <slot>
-    {#each $modals as modal, i (i)}
-        <svelte:component this={modal.component} isOpen={i === $modals.length - 1} index={i} {...modal.props || {} }/>
-    {/each}
+	{#each $modals as modal, i (i)}
+		<svelte:component
+			this={modal.component}
+			isOpen={i === $modals.length - 1}
+			index={i}
+			{...modal.props || {}}
+		/>
+	{/each}
 </slot>
