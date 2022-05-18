@@ -18,6 +18,8 @@ export async function handle({ event, resolve }: { event: RequestEvent, resolve:
         event.locals.user = user
     } else {
         event.locals.user = RESP_USER_GUEST
+        // If token is not present, reset supabase auth
+        await auth.setAuth(null)
     }
 
 	let response = await resolve(event);
