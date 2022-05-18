@@ -17,6 +17,7 @@ export async function handle({ event, resolve }: { event: RequestEvent, resolve:
             await auth.setAuth(null)
         }
         event.locals.user = user
+        await auth.setAuth(sbToken)
     } else {
         event.locals.user = RESP_USER_GUEST
         // If token is not present, reset supabase auth
