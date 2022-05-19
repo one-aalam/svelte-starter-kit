@@ -1,19 +1,24 @@
-
 export type AjaxActionProps = {
-    onSubmit?: (data) => void,
-    onResponse?: (data) => void,
-}
+	onSubmit?: (data) => void;
+	onResponse?: (data) => void;
+};
 
 const AjaxActionDefaults = {
-    onSubmit: (data) => {},
-    onResponse: (data) => {},
-}
+	onSubmit: (data) => {},
+	onResponse: (data) => {}
+};
 
-export const ajaxify = (node: HTMLFormElement, { onSubmit = AjaxActionDefaults.onSubmit , onResponse =  AjaxActionDefaults.onResponse }: AjaxActionProps) => {
+export const ajaxify = (
+	node: HTMLFormElement,
+	{
+		onSubmit = AjaxActionDefaults.onSubmit,
+		onResponse = AjaxActionDefaults.onResponse
+	}: AjaxActionProps
+) => {
 	const handleSubmit = async (event) => {
-		event.preventDefault()
-		const body = node.method === 'post' || node.method === 'put' ? new FormData(node) : null
-        onSubmit(body)
+		event.preventDefault();
+		const body = node.method === 'post' || node.method === 'put' ? new FormData(node) : null;
+		onSubmit(body);
 
 		const resp = await fetch(node.action, {
 			method: node.method,
@@ -23,14 +28,14 @@ export const ajaxify = (node: HTMLFormElement, { onSubmit = AjaxActionDefaults.o
 			}
 		});
 
-		onResponse(resp)
+		onResponse(resp);
 	};
 
-	node.addEventListener('submit', handleSubmit)
+	node.addEventListener('submit', handleSubmit);
 
 	return {
 		destroy() {
-			node.removeEventListener('submit', handleSubmit)
+			node.removeEventListener('submit', handleSubmit);
 		}
-	}
-}
+	};
+};
