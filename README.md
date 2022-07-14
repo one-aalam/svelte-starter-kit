@@ -76,7 +76,7 @@ create policy "Anyone can upload an avatar."
   with check ( bucket_id = 'avatars' );
 ```
 
-`profiles` table's chnages are not observed in real-time due to performance reasons. If needed, execute the following query
+`profiles` table's changes are not observed in real-time due to performance reasons. If needed, execute the following query
 ```sql
 begin;
   drop publication if exists supabase_realtime;
