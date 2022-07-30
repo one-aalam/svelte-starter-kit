@@ -14,10 +14,14 @@ export async function handle({ event, resolve }: { event: RequestEvent, resolve:
         const { user, error } = await auth.api.getUser(sbToken)
         if (error) {
             event.locals.user = RESP_USER_GUEST
+            await auth.setAuth(null)
         }
         event.locals.user = user
+        await auth.setAuth(sbToken)
     } else {
         event.locals.user = RESP_USER_GUEST
+        // If token is not present, reset supabase auth
+        await auth.setAuth(null)
     }
 
 	let response = await resolve(event);
