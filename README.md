@@ -11,7 +11,7 @@ with [Supabase](https://supabase.io/) as the 3rd Party Persistence Layer for
 - __User Avatar__ which is Supbase Storage(AWS S3 backed effortless uploads) supported
 
 and a huge bunch of pre-made, hand-rolled(easily replace-able) components, that you almost always end up installing/using for any non-trivial project
-- __Alert/Toast__ to notify your users of the outcome of an event - `success, `error` or `default` is supported
+- __Alert/Toast__ to notify your users of the outcome of an event - `success`, `error` or `default` is supported
 - __Modal__(with multiple Modal and Sidepanel support) as you always come back to `em
 - __Loaders__(two types) for reporting the progress of an API call + a page load
 - __Popover__ for contextual menus
